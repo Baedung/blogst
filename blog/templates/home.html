@@ -1,0 +1,18 @@
+{% extends 'base.html'%}
+{% load static %} 
+
+{% block content%}
+<link rel="stylesheet" type="text/css" href="{% static 'blog/css/home.css' %}">
+<div class="container c">
+    {{blogs}}
+    <hr>
+    {% for blog in blogs.all %}
+        <h1>제목 : {{blog.title}}</h1>
+        <p>날짜 : {{blog.pub_date}}</p>
+        <p>본문 미리보기 : {{blog.summary}} <a href="{% url 'detail' blog.id%}">...more</a></p>
+        <hr> <br>
+    {% endfor %}
+
+</div>
+
+{%endblock%}
